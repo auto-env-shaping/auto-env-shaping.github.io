@@ -1,211 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="Automated Environment Shaping">
-  <meta property="og:title" content="Automated Environment Shaping"/>
-  <meta property="og:description" content="Automated Environment Shaping"/>
-  <meta property="og:url" content="https://automated-env-shaping.github.io/"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
-
-
-  <meta name="twitter:title" content="Automated Environment Shaping">
-  <meta name="twitter:description" content="Automated Environment Shaping">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <title>Automatic Environment Shaping</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
-
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Environment Shaping is the Next Frontier in RL</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1, h2, h3 {
+            font-weight: 300;
+            color: #2c3e50;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            text-align: center;
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 1.5em;
+        }
+        p {
+            margin-bottom: 1.5em;
+            text-align: justify;
+        }
+        .authors {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 0.5em;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        .authors span {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .paper-info {
+            text-align: center;
+            color: #2980b9;
+            font-size: 1.1em;
+            margin-bottom: 1em;
+            font-weight: 500;
+        }
+        .info-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1em;
+        }
+        .conference-info {
+            background-color: #e0f7fa;
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: #01579b;
+            font-size: 0.9em;
+            flex: 0 1 auto;
+        }
+        .conference-info strong {
+            font-weight: bold;
+        }
+        .links {
+            display: flex;
+            gap: 15px;
+            flex: 0 1 auto;
+        }
+        .links a {
+            color: #3498db;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9em;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .links img {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+        .abstract, .content-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2em;
+        }
+        .figure {
+            background-color: #e0e0e0;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1em 0;
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+        .figure-container {
+          margin: 2em 0;
+          text-align: center;
+        }
+        .figure-container img {
+            max-height: 300px;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .figure-caption {
+            margin-top: 0.5em;
+            font-style: italic;
+            color: #666;
+            font-size: 0.9em;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .authors span {
+                display: block;
+                margin: 5px 0;
+            }
+            .info-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .conference-info, .links {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            .links {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-
-
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Automatic Environment Shaping <br>is the Next Frontier in RL
-            </h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Anonymous Authors</a></span>
-                <!-- <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span> -->
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">ICML 2024 Position Track Submission</span>
-                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <!-- <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span> -->
-
-                    <!-- Supplementary PDF link -->
-                    <!-- <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span> -->
-
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/auto-env-shaping/EnvCoderBench.git" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- ArXiv abstract Link -->
-                <!-- <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span> -->
-                </a>
-              </span>
-            </div>
-          </div>
+    <h1>Automatic Environment Shaping<br>is the Next Frontier in RL</h1>
+    <p class="authors">
+        <span>Younghyo Park</span>
+        <span>Gabriel B. Margolis</span>
+        <span>Pulkit Agrawal</span>
+    </p>
+    <p class="paper-info">Position Paper at ICML 2024</p>
+    
+    <div class="info-container">
+        <div class="conference-info">
+            <strong>Oral Session:</strong> Wed 24 Jul 08:30 AM UTC in [Hall C 1-3]
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-        <!-- Your video here -->
-        <center>
-      <img src="static/images/web_figure.png" width="900"></img></center>
-      <h2 class="subtitle has-text-justified">
-        Flowchart of a typical behavior generation pipeline, illustrating three distinct subtasks of sample environment generation, environment shaping, and outer feedback loop with behavior reflection. We highlight the manual, heuristic-driven <b>environment shaping</b> as a key, yet often overlooked, bottleneck in generalizing the success of RL to a wider range of scenarios, and advocate for automating the process to broaden RL's applicability; <b>democratizing RL for Robotics</b>.
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Reinforcement learning algorithms for robotics are frequently benchmarked on pre-constructed simulation environments. Each environment includes heuristic task-specific design choices, including shaping the observation space, action space, terminal conditions, initial states, goal distribution, and reward. Because these choices are not automated, they remain an under-acknowledged bottleneck for applying techniques purported to be general-purpose to new robots and tasks. We propose a terminology for this problem, review relevant progress to date, and propose a new benchmark to evaluate automated environment shaping. 
-          </p>
+        <div class="links">
+            <a href="https://openreview.net/forum?id=dslUyy1rN4" target="_blank">
+                <img src="static/images/papericon.png" alt="Paper icon"> Full Paper
+            </a>
+            <a href="https://github.com/auto-env-shaping/EnvCoderBench" target="_blank">
+                <img src="https://github.com/favicon.ico" alt="Code icon"> Code Repository
+            </a>
         </div>
-      </div>
     </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<!--End paper poster -->
-
-
-<!--BibTex citation -->
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-           <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
-        </div>
-      </div>
+    
+    <div class="abstract">
+        <h2>Abstract</h2>
+        <p>Many roboticists dream of presenting a robot with a task in the evening and returning the next morning to find the robot capable of solving the task. What is preventing us from achieving this? Sim-to-real reinforcement learning (RL) has achieved impressive performance on challenging robotics tasks, but requires substantial human effort to set up the task in a way that is amenable to RL. It's our position that algorithmic improvements in policy optimization and other ideas should be guided towards resolving the primary bottleneck of shaping the training environment, i.e., designing observations, actions, rewards and simulation dynamics. Most practitioners don't tune the RL algorithm, but other environment parameters to obtain a desirable controller. We posit that scaling RL to diverse robotic tasks will only be achieved if the community focuses on automating environment shaping procedures.</p>
     </div>
-  </div>
-</footer>
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+    
+    <div class="content-section">
+      <h2>Key Argument and Findings</h2>
+      
+      <p>We argue that the primary bottleneck in scaling reinforcement learning (RL) to diverse robotic tasks is not the RL algorithms themselves, but the manual process of environment shaping. This process involves designing observations, actions, rewards, and simulation dynamics to make tasks more amenable to RL.</p>
+      
+      <div class="figure-container">
+          <img src="static/images/main_figure_16.png" alt="Flowchart of a typical behavior generation pipeline">
+          <p class="figure-caption">Figure 1: Flowchart of a typical behavior generation pipeline</p>
+      </div>
+      
+      <p>Figure 1 illustrates the typical workflow in RL for robotics. Notice how environment shaping is a crucial step that precedes the actual RL training. This step often requires substantial human effort and expertise, which limits the scalability of RL across diverse tasks.</p>
+      
+      <p>We found that the performance of RL algorithms is highly sensitive to the choice of environment parameters. This sensitivity is demonstrated in the following figure:</p>
+      
+      <div class="figure-container">
+          <img src="static/images/web_figure.png" alt="Impact of environment shaping on policy optimization">
+          <p class="figure-caption">Figure 2: Impact of environment shaping on policy optimization</p>
+      </div>
+      
+      <p>Figure 2 shows how different aspects of environment shaping (such as reward design, observation space, action space, etc.) can dramatically affect the performance of the learned policy. This underscores the importance of getting these parameters right, which currently relies heavily on human intuition and trial-and-error.</p>
+      
+      <p>Furthermore, we discovered that the process of environment shaping is a complex, non-convex optimization problem. This means that improving one aspect of the environment might lead to suboptimal results if other aspects are not considered simultaneously.</p>
+      
+      <div class="figure-container">
+          <img src="path/to/your/figure3.png" alt="Local optima in environment shaping problems">
+          <p class="figure-caption">Figure 3: Local optima in environment shaping problems</p>
+      </div>
+      
+      <p>Figure 3 visualizes this concept, showing how different combinations of environment parameters can lead to local optima in policy performance. This highlights the challenge of manually designing these parameters and the potential benefits of an automated approach.</p>
+      
+      <p>In conclusion, we argue that to truly scale RL to diverse robotic tasks, the research community needs to shift its focus towards automating the environment shaping process. This would not only reduce the reliance on human expertise but also potentially lead to more optimal and generalizable RL solutions.</p>
+    </div>
+</body>
+</html>
