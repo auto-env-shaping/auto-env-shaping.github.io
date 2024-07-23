@@ -179,34 +179,46 @@
     <div class="content-section">
       <h2>Key Argument and Findings</h2>
       
-      <p>We argue that the primary bottleneck in scaling reinforcement learning (RL) to diverse robotic tasks is not the RL algorithms themselves, but the manual process of environment shaping. This process involves designing observations, actions, rewards, and simulation dynamics to make tasks more amenable to RL.</p>
+      <p>The promise of reinforcement learning is to automatically solve decision making problems.</p>
       
       <div class="figure-container">
-          <img src="static/images/main_figure_16.png" alt="Flowchart of a typical behavior generation pipeline">
-          <p class="figure-caption">Figure 1: Flowchart of a typical behavior generation pipeline</p>
+          <img src="static/images/rl_wish.png" alt="What we wish RL could do">
+          <p class="figure-caption">A truly intelligent robot should be able to learn a new task without human supervision, removing the bottleneck to scaling capabilities.</p>
       </div>
       
-      <p>Figure 1 illustrates the typical workflow in RL for robotics. Notice how environment shaping is a crucial step that precedes the actual RL training. This step often requires substantial human effort and expertise, which limits the scalability of RL across diverse tasks.</p>
-      
-      <p>We found that the performance of RL algorithms is highly sensitive to the choice of environment parameters. This sensitivity is demonstrated in the following figure:</p>
+      <p>The reality of reinforcement learning is that it requires heavy human supervision to solve tasks of real-world complexity.</p>
       
       <div class="figure-container">
-          <img src="static/images/web_figure.png" alt="Impact of environment shaping on policy optimization">
-          <p class="figure-caption">Figure 2: Impact of environment shaping on policy optimization</p>
-      </div>
-      
-      <p>Figure 2 shows how different aspects of environment shaping (such as reward design, observation space, action space, etc.) can dramatically affect the performance of the learned policy. This underscores the importance of getting these parameters right, which currently relies heavily on human intuition and trial-and-error.</p>
-      
-      <p>Furthermore, we discovered that the process of environment shaping is a complex, non-convex optimization problem. This means that improving one aspect of the environment might lead to suboptimal results if other aspects are not considered simultaneously.</p>
+        <img src="static/images/rl_reality.png" alt="How people use RL today">
+        <p class="figure-caption">Typical stages of using RL to solve a robotics problem. Human effort is offset to environment shaping and behavior evaluation.</p>
+    </div>
+
+      <p>Practitioners use standard algorithms but carefully develop task-specific heuristics that masquerade as part of the environment.</p>
       
       <div class="figure-container">
-          <img src="path/to/your/figure3.png" alt="Local optima in environment shaping problems">
-          <p class="figure-caption">Figure 3: Local optima in environment shaping problems</p>
+          <img src="static/images/env_shaping_elements.png" alt="Common environment shaping components">
+          <p class="figure-caption">Common components of environment shaping in practice.</p>
       </div>
       
-      <p>Figure 3 visualizes this concept, showing how different combinations of environment parameters can lead to local optima in policy performance. This highlights the challenge of manually designing these parameters and the potential benefits of an automated approach.</p>
+      <p>Separate from the problem of constructing an accurate model, these heuristics are necessary to make optimization feasible.</p>
       
-      <p>In conclusion, we argue that to truly scale RL to diverse robotic tasks, the research community needs to shift its focus towards automating the environment shaping process. This would not only reduce the reliance on human expertise but also potentially lead to more optimal and generalizable RL solutions.</p>
+      <p>Without them, prevailing techniques fail.</p>
+      
+      <div class="figure-container">
+          <img src="static/images/ig_ablation.png" alt="">
+          <img src="static/images/nonconvexity.png" alt="">
+          <p class="figure-caption">Common benchmark environments are highly sensitive to shaping, often with numerous local minima in the shaping design.</p>
+      </div>
+
+      <p>Environment shaping is an essential tool for RL practitioners; to accelerate progress, RL researchers should focus on developing a framework for understanding how shaping impacts the learning dynamics and reducing its heuristic nature.</p>
+      
+      <div class="figure-container">
+          <img src="static/images/whole_env_eureka.png" alt="">
+          <p class="figure-caption">Much of the challenge in environment shaping extends beyond reward shaping.</p>
+      </div>
+
+      <p>For more details and our recommendations for progress, <a href="https://openreview.net/forum?id=dslUyy1rN4">read the full paper</a>.</p>
+    
     </div>
 </body>
 </html>
