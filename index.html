@@ -173,6 +173,16 @@
             color: #555; /* Text color */
             font-style: italic; /* Optional: Italicize text */
         }
+        .custom-link {
+            color: #3498db; /* Custom color for the link */
+            text-decoration: none; /* Remove default underline */
+        }
+
+        .custom-link:hover {
+            color: #2980b9; /* Slightly different color on hover */
+            text-decoration: underline; /* Optional: underline on hover */
+        }
+
 
     </style>
 </head>
@@ -206,6 +216,17 @@
         <p>Many roboticists dream of presenting a robot with a task in the evening and returning the next morning to find the robot capable of solving the task. What is preventing us from achieving this? Sim-to-real reinforcement learning (RL) has achieved impressive performance on challenging robotics tasks, but requires substantial human effort to set up the task in a way that is amenable to RL. It's our position that algorithmic improvements in policy optimization and other ideas should be guided towards resolving the primary bottleneck of shaping the training environment, i.e., designing observations, actions, rewards and simulation dynamics. Most practitioners don't tune the RL algorithm, but other environment parameters to obtain a desirable controller. We posit that scaling RL to diverse robotic tasks will only be achieved if the community focuses on automating environment shaping procedures.</p>
     </div>
     
+
+    <div class="content-section">
+      <h2>Key Claims</h2>
+      <ol>
+        <li>We need to <b>automate</b> the heuristic process of Environment Shaping. </li>
+        <li>We need <b>better RL algorithms</b> that doesn’t require heuristic environment shaping in the first place.</li>
+        <li>Developing better RL algorithms starts from <b>benchmarking on unshaped RL environments.</b></li>
+    </ol>
+
+    </div>
+
 
 
     <div class="content-section">
@@ -351,21 +372,56 @@
 </iframe>
 </center>
 
-      
+<p><b>Reset Strategy Shaping &nbsp;|&nbsp;&nbsp;</b> A reasonable unshaped reset strategy might be to always start from a 
+nominal state defined in reference environment; manually
+designed sample environment with every actors (robots and
+assets) staying in its nominal pose. We often assume such
+nominal pose to be a mean of its underlying distribution,
+commonly assumed as Gaussian or Uniform distribution.
+This is indeed the most simple yet common technique of
+designing initial state distribution for many robotics tasks –
+we just randomly perturb robot joints and assets around its
+nominal (reference) pose!</p>
+
+<p>When the task gets more complex, however, this simple
+approach starts to break quickly. Imagine randomly per-
+turbing a single nominal state of a dishwasher, or randomly
+perturbing the nominal pose of a quadruped standing on a
+rough terrain; dishes and ladles, feets and terrain will be in
+penetration most of the time. Doing rejection sampling can
+be a stopgap solution, but it might end up rejecting most of
+the samples, making the approach nearly unusable.
+In practice, robotics engineers thus take a clever, but heav-
+ily heurstic, task-dependent approach to shape initial states.</p>
+
+<p>
+  <ol>
+    <li>To randomly initialize a quadruped on a rough terrain, for
+instance, people make the robot walk off a small region of
+flat ground <a href="https://arxiv.org/abs/2109.11978" class="custom-link">[Rudin et al., 2022]</a>
+letting the simulation engine figure out the phsyics constraints.</li> 
+    <li>To generate random
+initial states for cluttered bin-picking tasks, we often drop
+objects from height in random order.</li> 
+    <li>To obtain initial states
+to train a fall-recovery policy for humanoid, we drop the
+humanoid from height <a href="https://arxiv.org/abs/2104.02180" class="custom-link">[Peng et al., 2021]</a>.</li>  
+    <li>For in-hand ma-
+nipulation tasks, to obtain a diverse set of downward-facing
+initial grasps to start with, we first train a grasping policy
+and execute it to generate diverse initial starting configura-
+tions that does not drop the object immediately <a href="https://arxiv.org/abs/2111.03043" class="custom-link">[Chen et al.,
+  2022b]</a>. </li>
+      </ol>
+</p>
+
+The task-specific nature of such strategies poses
+challenges in automating this shaping operation.
 
       <p>For more detailed examples of environment shaping, <a href="https://openreview.net/forum?id=dslUyy1rN4">read the full paper</a>.</p>
     
     </div>
 
-    <div class="content-section">
-      <h2>Key Claims</h2>
-      <ol>
-        <li>We need to <b>automate</b> the heuristic process of Environment Shaping. </li>
-        <li>We need <b>better RL algorithms</b> that doesn’t require heuristic environment shaping in the first place.</li>
-        <li>Developing better RL algorithms starts from <b>benchmarking on unshaped RL environments.</b></li>
-    </ol>
-
-    </div>
 
 </body>
 </html>
