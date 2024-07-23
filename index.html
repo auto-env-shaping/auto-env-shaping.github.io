@@ -87,9 +87,16 @@
             height: 16px;
             margin-right: 5px;
         }
-        .abstract, .content-section {
+        .abstract {
+            background-color: #fdfdfd;
+            padding: 3px 20px 20px 20px; /* Reduced top padding */
+            border-radius: 5px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2em;
+        }
+        .content-section {
             background-color: #fff;
-            padding: 20px;
+            padding: 3px 20px 20px 20px; /* Reduced top padding */
             border-radius: 5px;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             margin-bottom: 2em;
@@ -112,13 +119,26 @@
             max-height: 300px;
             max-width: 100%;
             height: auto;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            /* border: 1px solid #ddd; */
+            /* border-radius: 4px; */
+            /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
         }
+        .figure-container2 {
+          margin: 2em 0;
+          text-align: center;
+        }
+        .figure-container2 img {
+            max-height: 500px;
+            max-width: 100%;
+            height: auto;
+            /* border: 1px solid #ddd; */
+            /* border-radius: 4px; */
+            /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
+        }
+
         .figure-caption {
             margin-top: 0.5em;
-            font-style: italic;
+            /* font-style: italic; */
             color: #666;
             font-size: 0.9em;
         }
@@ -146,15 +166,25 @@
                 justify-content: center;
             }
         }
+        .quote {
+            border-left: 4px solid #ccc; /* Line on the left */
+            padding-left: 16px; /* Indentation */
+            margin-left: 16px;
+            color: #555; /* Text color */
+            font-style: italic; /* Optional: Italicize text */
+        }
+
     </style>
 </head>
 <body>
     <h1>Automatic Environment Shaping<br>is the Next Frontier in RL</h1>
     <p class="authors">
-        <span>Younghyo Park</span>
-        <span>Gabriel B. Margolis</span>
+        <span>Younghyo Park*</span>
+        <span>Gabriel B. Margolis*</span>
         <span>Pulkit Agrawal</span>
     </p>
+    <!-- put MIT logo with fixed width  -->
+    <img src="static/images/mit_logo_std_rgb_mit-red.png" alt="MIT Logo" style="width: 70px; display: block; margin: 0 auto;">
     <p class="paper-info">Position Paper at ICML 2024</p>
     
     <div class="info-container">
@@ -176,39 +206,101 @@
         <p>Many roboticists dream of presenting a robot with a task in the evening and returning the next morning to find the robot capable of solving the task. What is preventing us from achieving this? Sim-to-real reinforcement learning (RL) has achieved impressive performance on challenging robotics tasks, but requires substantial human effort to set up the task in a way that is amenable to RL. It's our position that algorithmic improvements in policy optimization and other ideas should be guided towards resolving the primary bottleneck of shaping the training environment, i.e., designing observations, actions, rewards and simulation dynamics. Most practitioners don't tune the RL algorithm, but other environment parameters to obtain a desirable controller. We posit that scaling RL to diverse robotic tasks will only be achieved if the community focuses on automating environment shaping procedures.</p>
     </div>
     
+
+
     <div class="content-section">
-      <h2>Key Argument and Findings</h2>
+      <h2>Dream of Every Roboticist</h2>
       
-      <p>The promise of reinforcement learning is to automatically solve decision making problems.</p>
+      <p>
+        <!-- <b>Dream of Every Roboticist &nbsp;|</b> &nbsp; -->
+        Ultimate dream of every roboticists is to create an <mark>Automatic Behavior Generator</mark>; 
+        a magical box that can produce performant robot controllers by just specifying the <b>robot</b> we're trying to use, 
+        <b>environment</b> it's going to be deployed in, and the <b>task</b> we want it to perform.</p>
       
       <div class="figure-container">
-          <img src="static/images/rl_wish.png" alt="What we wish RL could do">
-          <p class="figure-caption">A truly intelligent robot should be able to learn a new task without human supervision, removing the bottleneck to scaling capabilities.</p>
+          <video width="100%"  autoplay loop muted>
+              <!-- <source src="static/videos/twitter_main_fig.mp4" type="video/mp4"> -->
+               <!-- make it auto-loop, with no video control exposed -->
+              <source src="static/videos/twitter_main_fig.mp4" type="video/mp4">
+          </video>  
+          <!-- <img src="static/images/rl_wish.png" alt="What we wish RL could do"> -->
+          <!-- <p class="figure-caption">A truly intelligent robot should be able to learn a new task without human supervision, removing the bottleneck to scaling capabilities.</p> -->
       </div>
       
-      <p>The reality of reinforcement learning is that it requires heavy human supervision to solve tasks of real-world complexity.</p>
+      <!-- <p>The reality of reinforcement learning is that it requires heavy human supervision to solve tasks of real-world complexity.</p> -->
+      <p>What do you think about this dream? Are we being too optimistic, overly ambitious? Do you think this day will ever come?</p>
+    </div>
       
+    <div class="content-section">
+      <h2>Promise of RL vs Reality</h2>
+        <b>Promise of RL &nbsp;|&nbsp;&nbsp;</b>Well, our dream of this magical box is not created out of thin air. In fact, it is what <mark>Reinforcement Learning</mark> is promising us in some sense!</p>
+
+      Reinforcement Learning, in theory, is a general-purpose, automated optimal control solver, that can produce working controllers for any MDP setting. 
+
+
       <div class="figure-container">
-        <img src="static/images/rl_reality.png" alt="How people use RL today">
-        <p class="figure-caption">Typical stages of using RL to solve a robotics problem. Human effort is offset to environment shaping and behavior evaluation.</p>
+        <img src="static/images/rl_to_the_rescue.png" alt="How people use RL today">
+        <!-- <p class="figure-caption">Typical stages of using RL to solve a robotics problem. Human effort is offset to environment shaping and behavior evaluation.</p> -->
     </div>
 
-      <p>Practitioners use standard algorithms but carefully develop task-specific heuristics that masquerade as part of the environment.</p>
+    <b>Reality &nbsp;|&nbsp;&nbsp;</b>
+      <!-- <p>Practitioners use standard algorithms but carefully develop task-specific heuristics that masquerade as part of the environment.</p> -->
+       However, from a practical viewpoint who's trying to use RL to train real-world robotic tasks, the reality is quite different. 
       
+       Although RL itself does not necessarily require human effort during its training process, 
+       there is a very heuristic, labor-intensive processe that are required to make RL work in practice. 
+
+       We call that process <mark>Environment Shaping</mark>.
+
       <div class="figure-container">
-          <img src="static/images/env_shaping_elements.png" alt="Common environment shaping components">
-          <p class="figure-caption">Common components of environment shaping in practice.</p>
+          <img src="static/images/env_shaping.png" alt="Common environment shaping components">
+          <!-- <p class="figure-caption">Common components of environment shaping in practice.</p> -->
       </div>
-      
-      <p>Separate from the problem of constructing an accurate model, these heuristics are necessary to make optimization feasible.</p>
-      
-      <p>Without them, prevailing techniques fail.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>What is Environment Shaping?</h2>
+      <!-- block quote -->
+      <blockquote class="quote">
+        <b>Definition 2.3  (Environment Shaping).</b>  &nbsp;    Environment Shaping is a process of modifying a reference environment with <u>design choices specifically optimized for learning performance</u>. The purpose is to  smooth the optimization landscape for RL so it can find better solutions that better performs in its original reference environment.  
+      </blockquote>
       
       <div class="figure-container">
+      <img src="static/images/actual_diagram.png" alt="Environment Shaping Definition">
+      <!-- <p class="figure-caption">
+        wchart of a typical behavior generation pipeline using reinforcement learning with simulation, illustrating four distinct
+        subtasks of sample environment modeling, environment shaping, RL training, and outer feedback loop with behavior evaluation and
+        reflection. We highlight the manual, task-driven environment shaping as a key, yet often overlooked, bottleneck in generalizing the
+        success of RL. We thus advocate for automating the environment shaping process to broaden RL’s applicability.      </p> -->
+
+      </div>
+      Independent from the problem of constructing an accurate model of the real-world, Environment Shaping is guided towards making the learning process easier for the RL algorithm; Without them, prevailing techniques fail to produce working solutions. 
+      
+      <div class="figure-container2">
           <img src="static/images/ig_ablation.png" alt="">
           <img src="static/images/nonconvexity.png" alt="">
-          <p class="figure-caption">Common benchmark environments are highly sensitive to shaping, often with numerous local minima in the shaping design.</p>
+          <p class="figure-caption">Common benchmark environments are highly sensitive to shaping, often with numerous local minima in the shaping design. Each
+            node on the right represents a shaped training environment. Edges connect
+            environments that are separated by modifying one type of shaping
+            (action space, state space, reward function, initial state, goal, or
+            terminal condition). Bold arrows represent optimal choices for
+            hill climbing. Each environment is shown to have multiple local
+            optima corresponding to the top row of nodes.</p>
       </div>
+<!-- 
+      For instance, 
+
+      <iframe
+      src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=vscode&wt=none&l=python&width=476&ds=true&dsyoff=6px&dsblur=9px&wc=false&wa=false&pv=2px&ph=2px&ln=false&fl=1&fm=Hack&fs=11px&lh=133%25&si=false&es=2x&wm=false&code=def%2520shaped_action_space%28self%252C%2520policy_action%29%253A%2520%250A%250A%2520%2520%2509%2523%2520scale%2520the%2520targets%2520by%2520joint%2520limits%250A%2509cur_targets%2520%253D%2520scale%28policy_action%252C%2520lower_bound%252C%2520upper_bound%29%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%2523%2520compute%2520the%2520moving%2520average%2520of%2520targets%250A%2520%2520%2520%2520cur_targets%2520%253D%2520coefs%255B%27alpha%27%255D%2520*%2520cur_targets%2520%250A%2520%2520%2520%2520%2509%2509%2509%2520%2520%252B%2520%281%2520-%2520coefs%255B%27alpha%27%255D%29%2520*%2520prev_targets%250A%2520%2520%2520%2520cur_targets%2520%253D%2520clamp%28cur_targets%252C%2520lower_bound%252C%2520upper_bound%29%250A%2520%2520%2520%2520prev_targets%2520%253D%2520cur_targets%2520%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%2523%2520compute%2520the%2520torques%2520according%2520to%2520PD%2520control%2520law%2520%250A%2520%2520%2520%2520torque%2520%253D%2520coefs%255B%27pgain%27%255D%2520*%2520%28cur_targets%2520-%2520self.dof_pos%29%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520-%2520coefs%255B%27dgain%27%255D%2520*%2520self.dof_vel%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%2523%2520apply%2520torque%250A%2520%2520%2520%2520self.robot.apply_torque%28torque%29"
+      style="width: 476px; height: 297px; border:0; transform: scale(1); overflow:hidden;"
+      sandbox="allow-scripts allow-same-origin">
+    </iframe>
+
+      <iframe
+      src="https://carbon.now.sh/embed?bg=rgba%28171%2C+184%2C+195%2C+1%29&t=vscode&wt=none&l=python&width=476&ds=true&dsyoff=6px&dsblur=9px&wc=false&wa=false&pv=2px&ph=2px&ln=false&fl=1&fm=Hack&fs=11px&lh=133%25&si=false&es=2x&wm=false&code=def%2520shaped_action_space%28self%252C%2520policy_action%29%253A%2520%250A%250A%2520%2520%2509%2523%2520scale%2520the%2520targets%2520by%2520joint%2520limits%250A%2509cur_targets%2520%253D%2520scale%28policy_action%252C%2520lower_bound%252C%2520upper_bound%29%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%2523%2520compute%2520the%2520moving%2520average%2520of%2520targets%250A%2520%2520%2520%2520cur_targets%2520%253D%2520coefs%255B%27alpha%27%255D%2520*%2520cur_targets%2520%250A%2520%2520%2520%2520%2509%2509%2509%2520%2520%252B%2520%281%2520-%2520coefs%255B%27alpha%27%255D%29%2520*%2520prev_targets%250A%2520%2520%2520%2520cur_targets%2520%253D%2520clamp%28cur_targets%252C%2520lower_bound%252C%2520upper_bound%29%250A%2520%2520%2520%2520prev_targets%2520%253D%2520cur_targets%2520%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%2523%2520compute%2520the%2520torques%2520according%2520to%2520PD%2520control%2520law%2520%250A%2520%2520%2520%2520torque%2520%253D%2520coefs%255B%27pgain%27%255D%2520*%2520%28cur_targets%2520-%2520self.dof_pos%29%2520%250A%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520%2520-%2520coefs%255B%27dgain%27%255D%2520*%2520self.dof_vel%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520%2523%2520apply%2520torque%250A%2520%2520%2520%2520self.robot.apply_torque%28torque%29"
+      style="width: 476px; height: 297px; border:0; transform: scale(1); overflow:hidden;"
+      sandbox="allow-scripts allow-same-origin">
+    </iframe>
 
       <p>Environment shaping is an essential tool for RL practitioners; to accelerate progress, RL researchers should focus on developing a framework for understanding how shaping impacts the learning dynamics and reducing its heuristic nature.</p>
       
@@ -217,8 +309,63 @@
           <p class="figure-caption">Much of the challenge in environment shaping extends beyond reward shaping.</p>
       </div>
 
-      <p>For more details and our recommendations for progress, <a href="https://openreview.net/forum?id=dslUyy1rN4">read the full paper</a>.</p>
+      <p>For more details and our recommendations for progress, <a href="https://openreview.net/forum?id=dslUyy1rN4">read the full paper</a>.</p> -->
     
     </div>
+
+    <div class="content-section">
+      <h2>Examples of Environment Shaping</h2>
+
+      <p>The problem of <b>reward shaping</b> is well known to the community; unfortunately, environment shaping doesn't just end with reward. 
+      Robotics engineers carefully shape nearly every component of the environment to make RL work in practice, including its action space, observation space, terminal condition, reset strategy, etc. 
+      </p>
+
+      <p>In this section, let's go through some examples of environment shaping that are commonly found in robotics RL environments. </p>
+
+      <b>Action Space Shaping &nbsp;|&nbsp;&nbsp;</b> In the context of robotics, 
+      action space shaping is basically a process of choosing how to convert the action predicted by the policy to a command that the motor can accept. 
+      <div class="figure-container">
+          <img src="static/images/action_space_shaping.png" alt="">
+      </div>
+
+      An “unshaped” action space will thus look very simple; 
+      It’s as easy as letting the policy to directly predict feasible motor commands. 
+      No post-processing required, policy predictions are directly sent to the motors. 
+
+      <center>
+      <iframe
+      src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=vscode&wt=none&l=python&width=380&ds=true&dsyoff=4px&dsblur=9px&wc=false&wa=false&pv=21px&ph=25px&ln=false&fl=1&fm=Hack&fs=13.5px&lh=133%25&si=false&es=2x&wm=false&code=def%2520get_actuation%28self%252C%2520res%29%253A%250A%2520%2520%2523%2520no%2520post-processing%2520of%2520policy%2520output%250A%2520%2520return%2520res%2520"
+      style="width: 380px; height: 158px; border:0; transform: scale(1); overflow:hidden;"
+      sandbox="allow-scripts allow-same-origin">
+    </iframe>
+  </center>
+
+  However, most RL benchmark environments apply a bunch of task-specific heuristics to shape the policy outputs before it gets passed into the motor. 
+
+  <center>
+
+    <iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=vscode&wt=none&l=python&width=636&ds=true&dsyoff=4px&dsblur=9px&wc=false&wa=false&pv=21px&ph=25px&ln=false&fl=1&fm=Hack&fs=13.5px&lh=133%25&si=false&es=2x&wm=false&code=def%2520get_actuation%28self%252C%2520res%29%253A%250A%2520%2520%2523%2520policy%2520is%2520expected%2520to%2520predict%2520absolute%2520joint%2520position%2520targets%2520%250A%2520%2520%250A%2520%2520%2523%2520scale%2520the%2520policy%2520output%250A%2520%2520cur_target%2520%253D%2520scale%28res%252C%2520lower_bound%252C%2520upper_bound%29%250A%2520%2520%250A%2520%2520%2523%2520compute%2520the%2520moving%2520average%2520of%2520targets%250A%2520%2520cur_target%2520%253D%2520coefs%255B%27alpha%27%255D%2520*%2520cur_target%2520%250A%2520%2520%2509%2509%2509%2520%2520%2520%252B%2520%281%2520-%2520coefs%255B%27alpha%27%255D%29%2520*%2520prev_target%2520%250A%2520%2520prev_target%2520%253D%2520cur_target%2520%250A%2520%2520%250A%2520%2520%2523%2520compute%2520the%2520motor%2520torques%2520with%2520PD%2520controller%250A%2520%2520torques%2520%253D%2520coefs%255B%27pgain%27%255D%2520*%2520%28cur_target%2520-%2520self.dof_pos%29%2520%250A%2520%2520%2509%2509%2509-%2520coefs%255B%27dgain%27%255D%2520*%2520self.dof_vel%2520%250A%2520%2520%250A%2520%2520return%2520torques"
+  style="width: 636px; height: 420px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+</center>
+
+      
+
+      <p>For more detailed examples of environment shaping, <a href="https://openreview.net/forum?id=dslUyy1rN4">read the full paper</a>.</p>
+    
+    </div>
+
+    <div class="content-section">
+      <h2>Key Claims</h2>
+      <ol>
+        <li>We need to <b>automate</b> the heuristic process of Environment Shaping. </li>
+        <li>We need <b>better RL algorithms</b> that doesn’t require heuristic environment shaping in the first place.</li>
+        <li>Developing better RL algorithms starts from <b>benchmarking on unshaped RL environments.</b></li>
+    </ol>
+
+    </div>
+
 </body>
 </html>
