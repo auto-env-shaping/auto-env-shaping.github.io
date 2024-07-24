@@ -295,7 +295,7 @@
         success of RL. We thus advocate for automating the environment shaping process to broaden RL’s applicability.      </p> -->
 
       </div>
-      Independent from the problem of constructing an accurate model of the real-world, Environment Shaping is guided towards making the learning process easier for the RL algorithm; Without them, prevailing techniques fail to produce working solutions. 
+      Independent from the problem of constructing an accurate model of the real-world, Environment Shaping is guided towards making the learning process easier for the RL algorithm; Without this, prevailing techniques fail to produce working solutions. 
       
       <div class="figure-container2">
           <img src="static/images/ig_ablation.png" alt="">
@@ -384,15 +384,13 @@ we just randomly perturb robot joints and assets around its
 nominal (reference) pose!</p>
 
 <p>When the task gets more complex, however, this simple
-approach starts to break quickly. Imagine randomly per-
-turbing a single nominal state of a dishwasher, or randomly
+approach starts to break quickly. Imagine randomly perturbing a single nominal state of a dishwasher, or randomly
 perturbing the nominal pose of a quadruped standing on a
 rough terrain; dishes and ladles, feets and terrain will be in
 penetration most of the time. Doing rejection sampling can
 be a stopgap solution, but it might end up rejecting most of
 the samples, making the approach nearly unusable.
-In practice, robotics engineers thus take a clever, but heav-
-ily heurstic, task-dependent approach to shape initial states.</p>
+In practice, robotics engineers thus take a clever, but heavily heuristic, task-dependent approach to shape initial states.</p>
 
 <p>
   <ol>
@@ -404,13 +402,11 @@ letting the simulation engine figure out the phsyics constraints.</li>
 initial states for cluttered bin-picking tasks, we often drop
 objects from height in random order.</li> 
     <li>To obtain initial states
-to train a fall-recovery policy for humanoid, we drop the
-humanoid from height <a href="https://arxiv.org/abs/2104.02180" class="custom-link">[Peng et al., 2021]</a>.</li>  
-    <li>For in-hand ma-
-nipulation tasks, to obtain a diverse set of downward-facing
+to train a fall-recovery policy for humanoid, it is common to drop the
+humanoid from a height <a href="https://arxiv.org/abs/2104.02180" class="custom-link">[Peng et al., 2021]</a>.</li>  
+    <li>For in-hand manipulation tasks, to obtain a diverse set of downward-facing
 initial grasps to start with, we first train a grasping policy
-and execute it to generate diverse initial starting configura-
-tions that does not drop the object immediately <a href="https://arxiv.org/abs/2111.03043" class="custom-link">[Chen et al.,
+and execute it to generate diverse initial starting configurations that do not drop the object immediately <a href="https://arxiv.org/abs/2111.03043" class="custom-link">[Chen et al.,
   2022b]</a>. </li>
       </ol>
 </p>
