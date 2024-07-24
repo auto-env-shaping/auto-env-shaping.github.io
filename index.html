@@ -353,24 +353,15 @@
       It’s as easy as letting the policy to directly predict feasible motor commands. 
       No post-processing required, policy predictions are directly sent to the motors. 
 
-      <center>
-      <iframe
-      src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=vscode&wt=none&l=python&width=380&ds=true&dsyoff=4px&dsblur=9px&wc=false&wa=false&pv=21px&ph=25px&ln=false&fl=1&fm=Hack&fs=13.5px&lh=133%25&si=false&es=2x&wm=false&code=def%2520get_actuation%28self%252C%2520res%29%253A%250A%2520%2520%2523%2520no%2520post-processing%2520of%2520policy%2520output%250A%2520%2520return%2520res%2520"
-      style="width: 380px; height: 158px; border:0; transform: scale(1); overflow:hidden;"
-      sandbox="allow-scripts allow-same-origin">
-    </iframe>
-  </center>
+      <div class="figure-container">
+        <img src="static/images/a1.png" alt="" width="50%">
+    </div>
 
-  However, most RL benchmark environments apply a bunch of task-specific heuristics to shape the policy outputs before it gets passed into the motor. 
+      However, most RL benchmark environments apply a bunch of task-specific heuristics to shape the policy outputs before it gets passed into the motor. 
 
-  <center>
-
-    <iframe
-  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=vscode&wt=none&l=python&width=636&ds=true&dsyoff=4px&dsblur=9px&wc=false&wa=false&pv=21px&ph=25px&ln=false&fl=1&fm=Hack&fs=13.5px&lh=133%25&si=false&es=2x&wm=false&code=def%2520get_actuation%28self%252C%2520res%29%253A%250A%2520%2520%2523%2520policy%2520is%2520expected%2520to%2520predict%2520absolute%2520joint%2520position%2520targets%2520%250A%2520%2520%250A%2520%2520%2523%2520scale%2520the%2520policy%2520output%250A%2520%2520cur_target%2520%253D%2520scale%28res%252C%2520lower_bound%252C%2520upper_bound%29%250A%2520%2520%250A%2520%2520%2523%2520compute%2520the%2520moving%2520average%2520of%2520targets%250A%2520%2520cur_target%2520%253D%2520coefs%255B%27alpha%27%255D%2520*%2520cur_target%2520%250A%2520%2520%2509%2509%2509%2520%2520%2520%252B%2520%281%2520-%2520coefs%255B%27alpha%27%255D%29%2520*%2520prev_target%2520%250A%2520%2520prev_target%2520%253D%2520cur_target%2520%250A%2520%2520%250A%2520%2520%2523%2520compute%2520the%2520motor%2520torques%2520with%2520PD%2520controller%250A%2520%2520torques%2520%253D%2520coefs%255B%27pgain%27%255D%2520*%2520%28cur_target%2520-%2520self.dof_pos%29%2520%250A%2520%2520%2509%2509%2509-%2520coefs%255B%27dgain%27%255D%2520*%2520self.dof_vel%2520%250A%2520%2520%250A%2520%2520return%2520torques"
-  style="width: 636px; height: 420px; border:0; transform: scale(1); overflow:hidden;"
-  sandbox="allow-scripts allow-same-origin">
-</iframe>
-</center>
+      <div class="figure-container2">
+        <img src="static/images/a2.png" alt=""  width="65%">
+    </div>
 
 <p><b>Reset Strategy Shaping &nbsp;|&nbsp;&nbsp;</b> A reasonable unshaped reset strategy might be to always start from a 
 nominal state defined in reference environment; manually
